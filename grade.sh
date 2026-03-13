@@ -22,7 +22,7 @@ fail=0
 total=0
 passed=0
 
-for prob_dir in "$STAGE_DIR"solutions/*/; do
+for prob_dir in "$STAGE_DIR"/solutions/*/; do
   prob_name="$(basename "$prob_dir")"
   echo ""
   echo "---- Problem: $prob_name ----"
