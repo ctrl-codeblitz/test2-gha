@@ -1,7 +1,9 @@
 name: Grade Submissions
 
 on:
-  push
+  push:
+    paths: 
+      - 'stage1/**'
 
 jobs:
   grade:
