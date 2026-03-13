@@ -19,11 +19,14 @@ total=0
 passed=0
 
 for prob_dir in "$STAGE_DIR"/solutions/*/; do
-    prob_name=$(basename "$prob_dir")
-    echo ""
-    echo "---- Problem: $prob_name ----"
+    prob_dir_clean="${prob_dir%/}"
+    prob_folder_name=$(basename "$prob_dir_clean")
+    prob_num=$(echo "$prob_folder_name" | grep -oE '[0-9]+')
 
-    test_dir="$STAGE_DIR/tests/$prob_name"
+    echo ""
+    echo "---- Problem: $prob_folder_name ----"
+
+    test_dir="$STAGE_DIR/tests/problem$prob_num"
     if [[ ! -d "$test_dir" ]]; then
         echo "ERROR: Missing test directory: $test_dir"
         fail=1
